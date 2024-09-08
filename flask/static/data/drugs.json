@@ -10,5 +10,233 @@
     "name": "Ibuprofen",
     "stock": 500,
     "consumed": 100
-  }
+  },
+  {
+    "id": 3,
+    "name": "Amoxicillin",
+    "stock": 800,
+    "consumed": 150
+  },
+  {
+    "id": 4,
+    "name": "Aspirin",
+    "stock": 600,
+    "consumed": 250
+  },
+  {
+    "id": 5,
+    "name": "Metformin",
+    "stock": 1200,
+    "consumed": 300
+  },
+  {
+    "id": 6,
+    "name": "Atorvastatin",
+    "stock": 900,
+    "consumed": 180
+  },
+  {
+    "id": 7,
+    "name": "Ciprofloxacin",
+    "stock": 700,
+    "consumed": 220
+  },
+  {
+    "id": 8,
+    "name": "Lisinopril",
+    "stock": 1100,
+    "consumed": 400
+  },
+  {
+    "id": 9,
+    "name": "Hydrochlorothiazide",
+    "stock": 950,
+    "consumed": 270
+  },
+  {
+    "id": 10,
+    "name": "Omeprazole",
+    "stock": 1300,
+    "consumed": 350
+  },
+  {
+    "id": 11,
+    "name": "Losartan",
+    "stock": 850,
+    "consumed": 190
+  },
+  {
+    "id": 12,
+    "name": "Azithromycin",
+    "stock": 780,
+    "consumed": 140
+  },
+  {
+    "id": 13,
+    "name": "Levothyroxine",
+    "stock": 950,
+    "consumed": 310
+  },
+  {
+    "id": 14,
+    "name": "Simvastatin",
+    "stock": 890,
+    "consumed": 270
+  },
+  {
+    "id": 15,
+    "name": "Albuterol",
+    "stock": 600,
+    "consumed": 130
+  },
+  {
+    "id": 16,
+    "name": "Prednisone",
+    "stock": 400,
+    "consumed": 90
+  },
+  {
+    "id": 17,
+    "name": "Gabapentin",
+    "stock": 1150,
+    "consumed": 500
+  },
+  {
+    "id": 18,
+    "name": "Tramadol",
+    "stock": 750,
+    "consumed": 320
+  },
+  {
+    "id": 19,
+    "name": "Cetirizine",
+    "stock": 1300,
+    "consumed": 430
+  },
+  {
+    "id": 20,
+    "name": "Clopidogrel",
+    "stock": 520,
+    "consumed": 210
+  },
+  {
+    "id": 1,
+    "name": "Acetaminophen",
+    "stock": 1500,
+    "consumed": 450
+  },
+  {
+    "id": 2,
+    "name": "Naproxen",
+    "stock": 800,
+    "consumed": 220
+  },
+  {
+    "id": 3,
+    "name": "Doxycycline",
+    "stock": 1200,
+    "consumed": 320
+  },
+  {
+    "id": 4,
+    "name": "Hydrocodone",
+    "stock": 900,
+    "consumed": 500
+  },
+  {
+    "id": 5,
+    "name": "Furosemide",
+    "stock": 1300,
+    "consumed": 400
+  },
+  {
+    "id": 6,
+    "name": "Warfarin",
+    "stock": 650,
+    "consumed": 150
+  },
+  {
+    "id": 7,
+    "name": "Citalopram",
+    "stock": 850,
+    "consumed": 270
+  },
+  {
+    "id": 8,
+    "name": "Tamsulosin",
+    "stock": 1100,
+    "consumed": 390
+  },
+  {
+    "id": 9,
+    "name": "Ranitidine",
+    "stock": 1400,
+    "consumed": 350
+  },
+  {
+    "id": 10,
+    "name": "Lorazepam",
+    "stock": 500,
+    "consumed": 120
+  },
+    {
+        "id": 11,
+        "name": "Fluoxetine",
+        "stock": 900,
+        "consumed": 300
+    },
+    {
+        "id": 12,
+        "name": "Metoprolol",
+        "stock": 800,
+        "consumed": 250
+    },
+    {
+        "id": 13,
+        "name": "Amlodipine",
+        "stock": 1000,
+        "consumed": 400
+    },
+    {
+        "id": 14,
+        "name": "Sertraline",
+        "stock": 1200,
+        "consumed": 350
+    },
+    {
+        "id": 15,
+        "name": "Cephalexin",
+        "stock": 700,
+        "consumed": 200
+    },
+    {
+        "id": 16,
+        "name": "Clonazepam",
+        "stock": 950,
+        "consumed": 300
+    },
+    {
+        "id": 17,
+        "name": "Metronidazole",
+        "stock": 800,
+        "consumed": 250
+    },
+    {
+        "id": 18,
+        "name": "Fluticasone",
+        "stock": 1100,
+        "consumed": 400
+    },
+    {
+        "id": 19,
+        "name": "Diazepam",
+        "stock": 1300,
+        "consumed": 350
+    },
+    {
+        "id": 20,
+        "name": "Carvedilol",
+        "stock": 850,
+        "consumed": 190
+    }
 ]
