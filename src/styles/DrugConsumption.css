@@ -1,0 +1,35 @@
+/* Basic Styling */
+.drug-consumption-container {
+  margin-left: 275px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.drug-consumption-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.drug-consumption-container p {
+  font-size: 16px;
+  color: #333;
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .drug-consumption-container {
+    padding: 10px;
+  }
+
+  .drug-consumption-container h1 {
+    font-size: 20px;
+  }
+
+  .drug-consumption-container p {
+    font-size: 14px;
+  }
+}

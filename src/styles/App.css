@@ -1,0 +1,37 @@
+.App {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2a2a4c;
+  border-right-style: unset;
+  padding: 20px;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+h1 {
+  margin-left: 275px;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}

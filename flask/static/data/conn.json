@@ -1,0 +1,136 @@
+[ {
+  "hospital": "General City Hospital",
+  "date": "2024-09-09",
+  "drugs": [
+    {
+      "drug_id": "D001",
+      "name": "Paracetamol",
+      "category": "Analgesic",
+      "unit": "tablets",
+      "quantity_consumed": 150,
+      "stock_remaining": 500,
+      "consumption_rate": 0.3
+    },
+    {
+      "drug_id": "D002",
+      "name": "Amoxicillin",
+      "category": "Antibiotic",
+      "unit": "capsules",
+      "quantity_consumed": 80,
+      "stock_remaining": 200,
+      "consumption_rate": 0.4
+    },
+    {
+      "drug_id": "D003",
+      "name": "Ibuprofen",
+      "category": "Anti-inflammatory",
+      "unit": "tablets",
+      "quantity_consumed": 120,
+      "stock_remaining": 350,
+      "consumption_rate": 0.34
+    }
+  ]
+},
+{
+  "hospital": "Sunnydale Medical Center",
+  "date": "2024-09-09",
+  "drugs": [
+    {
+      "drug_id": "D010",
+      "name": "Losartan",
+      "category": "Antihypertensive",
+      "unit": "tablets",
+      "quantity_consumed": 75,
+      "stock_remaining": 280,
+      "consumption_rate": 0.27,
+      "last_order_date": "2024-08-14",
+      "supplier": "HypertensionCare",
+      "price_per_unit": 0.18
+    },
+    {
+      "drug_id": "D011",
+      "name": "Clopidogrel",
+      "category": "Antiplatelet",
+      "unit": "tablets",
+      "quantity_consumed": 55,
+      "stock_remaining": 180,
+      "consumption_rate": 0.31,
+      "last_order_date": "2024-08-25",
+      "supplier": "HeartHealth",
+      "price_per_unit": 0.20
+    },
+    {
+      "drug_id": "D012",
+      "name": "Atorvastatin",
+      "category": "Statin",
+      "unit": "tablets",
+      "quantity_consumed": 90,
+      "stock_remaining": 320,
+      "consumption_rate": 0.28,
+      "last_order_date": "2024-08-05",
+      "supplier": "CholesterolCare",
+      "price_per_unit": 0.14
+    },
+    {
+      "drug_id": "D013",
+      "name": "Metoprolol",
+      "category": "Beta-blocker",
+      "unit": "tablets",
+      "quantity_consumed": 100,
+      "stock_remaining": 240,
+      "consumption_rate": 0.29,
+      "last_order_date": "2024-08-18",
+      "supplier": "CardioWell",
+      "price_per_unit": 0.12
+    },
+    {
+      "drug_id": "D014",
+      "name": "Sertraline",
+      "category": "Antidepressant",
+      "unit": "tablets",
+      "quantity_consumed": 65,
+      "stock_remaining": 210,
+      "consumption_rate": 0.31,
+      "last_order_date": "2024-07-28",
+      "supplier": "MoodMed",
+      "price_per_unit": 0.16
+    },
+    {
+      "drug_id": "D015",
+      "name": "Loratadine",
+      "category": "Antihistamine",
+      "unit": "tablets",
+      "quantity_consumed": 80,
+      "stock_remaining": 250,
+      "consumption_rate": 0.32,
+      "last_order_date": "2024-08-22",
+      "supplier": "AllergyRelief",
+      "price_per_unit": 0.07
+    },
+    {
+      "drug_id": "D016",
+      "name": "Ciprofloxacin",
+      "category": "Antibiotic",
+      "unit": "tablets",
+      "quantity_consumed": 120,
+      "stock_remaining": 400,
+      "consumption_rate": 0.30,
+      "last_order_date": "2024-08-10",
+      "supplier": "InfectioCare",
+      "price_per_unit": 0.13
+    },
+    {
+      "drug_id": "D017",
+      "name": "Gabapentin",
+      "category": "Anticonvulsant",
+      "unit": "capsules",
+      "quantity_consumed": 70,
+      "stock_remaining": 190,
+      "consumption_rate": 0.37,
+      "last_order_date": "2024-08-12",
+      "supplier": "NeuroHelp",
+      "price_per_unit": 0.09
+    }
+  ]
+}
+]
