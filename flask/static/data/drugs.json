@@ -238,5 +238,125 @@
         "name": "Carvedilol",
         "stock": 850,
         "consumed": 190
-    }
+    },
+    {
+        "id": 1,
+        "name": "Cyclobenzaprine",
+        "stock": 780,
+        "consumed": 140
+    },
+    {
+        "id": 2,
+        "name": "Meloxicam",
+        "stock": 950,
+        "consumed": 310
+    },
+    {
+        "id": 3,
+        "name": "Lisinopril",
+        "stock": 890,
+        "consumed": 270
+    },
+    {
+        "id": 4,
+        "name": "Atorvastatin",
+        "stock": 600,
+        "consumed": 130
+    },
+    {
+        "id": 5,
+        "name": "Ciprofloxacin",
+        "stock": 400,
+        "consumed": 90
+    },
+    {
+        "id": 6,
+        "name": "Metformin",
+        "stock": 1150,
+        "consumed": 500
+    },
+    {
+        "id": 7,
+        "name": "Amoxicillin",
+        "stock": 750,
+        "consumed": 320
+    },
+    {
+        "id": 8,
+        "name": "Ibuprofen",
+        "stock": 1300,
+        "consumed": 430
+    },
+    {
+        "id": 9,
+        "name": "Paracetamol",
+        "stock": 520,
+        "consumed": 210
+    },
+    {
+        "id": 10,
+        "name": "Aspirin",
+        "stock": 1500,
+        "consumed": 450
+    },
+    {
+        "id": 11,
+        "name": "Losartan",
+        "stock": 800,
+        "consumed": 220
+    },
+    {
+        "id": 12,
+        "name": "Omeprazole",
+        "stock": 1200,
+        "consumed": 320
+    },
+    {
+        "id": 13,
+        "name": "Azithromycin",
+        "stock": 900,
+        "consumed": 500
+    },
+  {
+    "id": 14,
+    "name": "Levothyroxine",
+    "stock": 1300,
+    "consumed": 400
+  },
+  {
+    "id": 15,
+    "name": "Simvastatin",
+    "stock": 650,
+    "consumed": 150
+  },
+  {
+    "id": 16,
+    "name": "Albuterol",
+    "stock": 850,
+    "consumed": 270
+  },
+  {
+    "id": 17,
+    "name": "Prednisone",
+    "stock": 1100,
+    "consumed": 390
+  },
+  {
+    "id": 18,
+    "name": "Gabapentin",
+    "stock": 1400,
+    "consumed": 350
+  },
+  {
+    "id": 19,
+    "name": "Tramadol",
+    "stock": 500,
+    "consumed": 120
+  },
+  {
+    "id": 20,
+    "name": "Cetirizine",
+    "stock": 900,
+    "consumed": 300
+  }
 ]
