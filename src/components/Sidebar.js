@@ -5,7 +5,7 @@ import '../styles/Sidebar.css';
 function Sidebar() {
   return (
     <div className="sidebar">
-      <h2>Inventory Tracking</h2>
+      <h2>Drug Inventory supply chain</h2>
         <ul>
             <li><Link to="/overview">Overview</Link></li>
             <li><Link to="/">Inventory and Stock Levels</Link></li>
