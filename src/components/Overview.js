@@ -2,23 +2,45 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Line, Bar } from 'react-chartjs-2';
 import '../styles/Overview.css';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
 
 // Register Chart.js components
-ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend);
 
 function Overview() {
-  const [metrics, setMetrics] = useState({});
+  const [metrics, setMetrics] = useState({
+    totalShipments: 1500,
+    deliveriesInProgress: 200,
+    successfulDeliveries: 1200,
+    failedDeliveries: 100,
+    averageLeadTime: 3
+  });
+
   const [chartData, setChartData] = useState({
     shipmentVolumeByRegion: {
-      labels: [],
-      datasets: []
+      labels: ['North', 'South', 'East', 'West'],
+      datasets: [
+        {
+          label: 'Shipments',
+          data: [500, 300, 400, 300],
+          backgroundColor: 'rgba(75, 192, 192, 0.6)'
+        }
+      ]
     },
     leadTimeOverTime: {
-      labels: [],
-      datasets: []
+      labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+      datasets: [
+        {
+          label: 'Average Lead Time (days)',
+          data: [2.5, 3.1, 3.7, 3.0],
+          borderColor: 'rgba(153, 102, 255, 1)',
+          backgroundColor: 'rgba(153, 102, 255, 0.2)',
+          fill: true
+        }
+      ]
     }
   });
+
   const [filters, setFilters] = useState({
     startDate: '',
     endDate: '',
@@ -27,19 +49,20 @@ function Overview() {
     carriers: 'All',
   });
 
-  useEffect(() => {
-    fetchMetrics();
-  }, [filters]);
-
+  // Define fetchMetrics before useEffect
   const fetchMetrics = async () => {
     try {
       const response = await axios.get('/api/overview', { params: filters });
-      setMetrics(response.data.metrics);
-      setChartData(response.data.charts);
+      setMetrics(response.data.metrics || metrics);
+      setChartData(response.data.charts || chartData);
     } catch (error) {
       console.error("Error fetching metrics:", error);
     }
   };
+
+  useEffect(() => {
+    fetchMetrics();
+  }, [filters]);
 
   return (
     <div className="overview-container">
@@ -68,16 +91,15 @@ function Overview() {
           onChange={(e) => setFilters({ ...filters, channels: e.target.value })}
         >
           <option value="All">All Channels</option>
-          {/* Add more channel options here */}
         </select>
         <select
           value={filters.carriers}
           onChange={(e) => setFilters({ ...filters, carriers: e.target.value })}
         >
           <option value="All">All Carriers</option>
-          {/* Add more carrier options here */}
         </select>
       </div>
+
       <div className="metrics">
         <div className="metric-card">
           <h3>Total Shipments</h3>
@@ -100,6 +122,7 @@ function Overview() {
           <p>{metrics.averageLeadTime} days</p>
         </div>
       </div>
+
       <div className="charts">
         <div className="chart">
           <h4>Shipment Volume by Region</h4>

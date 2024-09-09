@@ -9,10 +9,13 @@ function Dashboard() {
     api.getDrugs().then((response) => setDrugData(response.data));
   }, []);
 
-  return (
+  // Filter drugs with stock below 500
+  const lowStockDrugs = drugData.filter(drug => drug.stock < 500);
 
+  return (
     <div>
-      <h1>Drug Inventory Inventory levels</h1>
+      <h1>Drug Inventory Levels</h1>
+
       <table className="dashboard-table">
         <thead>
           <tr>
@@ -22,8 +25,23 @@ function Dashboard() {
           </tr>
         </thead>
         <tbody>
+          {lowStockDrugs.length > 0 && (
+            <>
+              <tr>
+                <td colSpan="3" className="low-stock-header">Low Stock Drugs</td>
+              </tr>
+              {lowStockDrugs.map((drug) => (
+                <tr key={drug.id} className="low-stock-row">
+                  <td data-label="Name">{drug.name}</td>
+                  <td data-label="Stock">{drug.stock}</td>
+                  <td data-label="Consumed">{drug.consumed}</td>
+                </tr>
+              ))}
+            </>
+          )}
+
           {drugData.map((drug) => (
-            <tr key={drug.id}>
+            <tr key={drug.id} className={drug.stock < 500 ? "highlight-row" : ""}>
               <td data-label="Name">{drug.name}</td>
               <td data-label="Stock">{drug.stock}</td>
               <td data-label="Consumed">{drug.consumed}</td>

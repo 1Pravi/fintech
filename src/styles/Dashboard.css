@@ -9,6 +9,7 @@
 
 .dashboard-table, th, td {
   border: 1px solid #ddd;
+  overflow-y: auto;
 }
 
 .dashboard-table th, td {
@@ -18,6 +19,21 @@
 
 .dashboard-table th {
   background-color: #f4f4f4;
+}
+
+.low-stock-header {
+  background-color: #ffcccc;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.low-stock-row {
+  background-color: #ffe6e6;
+}
+
+.highlight-row {
+  background-color: #ffcccc;
 }
 
 /* Responsive Styles */
