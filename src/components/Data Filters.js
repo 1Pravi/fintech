@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Operationp() {
+function DataFilters() {
     return(
         <div>
             <h1>Hello</h1>
@@ -9,4 +9,4 @@ function Operationp() {
     );
 }
 
-export default Operationp;
+export default DataFilters;

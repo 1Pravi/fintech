@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../styles/DrugConsumption.css';
+import '../styles/Customer Preferences.css';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-function DrugConsumption() {
+function CustomerPreferences() {
   // Simulated raw data from analytics and ML results
   const [consumptionData] = useState([
     { name: 'Paracetamol', units: 120, prediction: 130 },
@@ -57,4 +57,4 @@ function DrugConsumption() {
   );
 }
 
-export default DrugConsumption;
+export default CustomerPreferences;

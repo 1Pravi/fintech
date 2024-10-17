@@ -1,0 +1,50 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1a202c; /* Adjust color as desired */
+  color: #ffffff;
+}
+
+.topbar h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.topbar h1:hover {
+  color: #c3b9b9;
+}
+
+.topbar-controls {
+  display: flex;
+  gap: 15px;
+}
+
+.profile-btn {
+    background-color: #0f255c; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 15px; /* Font size for "P" */
+    font-weight: bold;
+    width: 35px; /* Width of the circular button */
+    height: 35px; /* Height to match width for a circle */
+    border-radius: 50%; /* Make it circular */
+    display: flex; /* Center the "P" */
+    align-items: center; /* Center the "P" vertically */
+    justify-content: center; /* Center the "P" horizontally */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.profile-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+.profile-btn:hover {
+  background-color: #357ABD;
+}
+
+
+

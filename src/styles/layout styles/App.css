@@ -1,0 +1,70 @@
+/* styles/App.css */
+.App {
+  display: flex;
+}
+
+.sidebar {
+  position: relative;
+  top: 50px;
+  width: 220px;
+  background: linear-gradient(to bottom, lightblue, white);
+  border-right-style: unset;
+  padding: 20px;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for Topbar */
+/* styles/App.css */
+
+.topbar {
+  position: fixed;
+  left: 0px; /* Sidebar width */
+  width: 98%; /* Full width minus sidebar */
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #010f20, #19192c);
+  color: #ffffff;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensures it stays above other elements */
+}
+
+/* Adjust content area */
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-top: 60px; /* Push content below the fixed Topbar */
+}
+
+
+.h1 {
+  color: lightcyan;
+  margin-left: 20px; /* Adjust as needed */
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+

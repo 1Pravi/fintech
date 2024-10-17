@@ -1,0 +1,51 @@
+.restaurant-insights {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.restaurant-insights h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.restaurant-insights h2 {
+  color: #555;
+  margin-top: 20px;
+}
+
+.restaurant-insights section {
+  margin-bottom: 20px;
+}
+
+.restaurant-insights h3 {
+  color: #666;
+}
+
+.restaurant-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.restaurant-table th, .restaurant-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.restaurant-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.restaurant-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}

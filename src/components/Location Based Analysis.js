@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar, Pie, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, LineElement } from 'chart.js';
-import '../styles/VendorTracking.css'; // Make sure to include this CSS file or use inline styles
+import '../styles/Location Based Analysis.css'; // Make sure to include this CSS file or use inline styles
 
 ChartJS.register(
   CategoryScale,
@@ -14,7 +14,7 @@ ChartJS.register(
   LineElement
 );
 
-function VendorTracking() {
+function LocationBasedAnalysis() {
   // Sample data
   const sampleVendorData = [
     { id: 1, name: 'Vendor A', shipments: 120 },
@@ -95,4 +95,4 @@ function VendorTracking() {
   );
 }
 
-export default VendorTracking;
+export default LocationBasedAnalysis;

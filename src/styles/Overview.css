@@ -1,6 +1,8 @@
 /* Overview.css */
 .overview-container {
-  margin-left: 259px; /* Same width as sidebar */
+  position: relative;
+  top: -24px;
+  margin-left: -20px; /* Same width as sidebar */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

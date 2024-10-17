@@ -8,7 +8,8 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, 
 ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend);
 
 function Overview() {
-  const [metrics, setMetrics] = useState({
+  // eslint-disable-next-line no-unused-vars
+  const [metrics] = useState({
     totalShipments: 1500,
     deliveriesInProgress: 200,
     successfulDeliveries: 1200,
@@ -41,7 +42,8 @@ function Overview() {
     }
   });
 
-  const [filters, setFilters] = useState({
+  // eslint-disable-next-line no-unused-vars
+  const [filters] = useState({
     startDate: '',
     endDate: '',
     status: 'All',
@@ -50,10 +52,10 @@ function Overview() {
   });
 
   // Define fetchMetrics before useEffect
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchMetrics = async () => {
     try {
       const response = await axios.get('/api/overview', { params: filters });
-      setMetrics(response.data.metrics || metrics);
       setChartData(response.data.charts || chartData);
     } catch (error) {
       console.error("Error fetching metrics:", error);
@@ -62,70 +64,37 @@ function Overview() {
 
   useEffect(() => {
     fetchMetrics();
-  }, [filters]);
+  }, [fetchMetrics, filters]);
 
   return (
     <div className="overview-container">
-      <div className="filters">
-        <input
-          type="date"
-          value={filters.startDate}
-          onChange={(e) => setFilters({ ...filters, startDate: e.target.value })}
-        />
-        <input
-          type="date"
-          value={filters.endDate}
-          onChange={(e) => setFilters({ ...filters, endDate: e.target.value })}
-        />
-        <select
-          value={filters.status}
-          onChange={(e) => setFilters({ ...filters, status: e.target.value })}
-        >
-          <option value="All">All Statuses</option>
-          <option value="In Progress">In Progress</option>
-          <option value="Successful">Successful</option>
-          <option value="Failed">Failed</option>
-        </select>
-        <select
-          value={filters.channels}
-          onChange={(e) => setFilters({ ...filters, channels: e.target.value })}
-        >
-          <option value="All">All Channels</option>
-        </select>
-        <select
-          value={filters.carriers}
-          onChange={(e) => setFilters({ ...filters, carriers: e.target.value })}
-        >
-          <option value="All">All Carriers</option>
-        </select>
-      </div>
 
       <div className="metrics">
         <div className="metric-card">
-          <h3>Total Shipments</h3>
+          <h3>Total Restaurants</h3>
           <p>{metrics.totalShipments}</p>
         </div>
         <div className="metric-card">
-          <h3>Deliveries in Progress</h3>
+          <h3>Total Reviews</h3>
           <p>{metrics.deliveriesInProgress}</p>
         </div>
         <div className="metric-card">
-          <h3>Successful Deliveries</h3>
+          <h3>Total Cuisine</h3>
           <p>{metrics.successfulDeliveries}</p>
         </div>
         <div className="metric-card">
-          <h3>Failed Deliveries</h3>
+          <h3>Total Cities</h3>
           <p>{metrics.failedDeliveries}</p>
         </div>
         <div className="metric-card">
-          <h3>Average Lead Time</h3>
-          <p>{metrics.averageLeadTime} days</p>
+          <h3>Top 10 Rated Restaurants</h3>
+          <p> </p>
         </div>
       </div>
 
       <div className="charts">
         <div className="chart">
-          <h4>Shipment Volume by Region</h4>
+          <h4>Top online orders by Region</h4>
           <Bar data={chartData.shipmentVolumeByRegion} />
         </div>
         <div className="chart">
