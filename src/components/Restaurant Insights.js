@@ -1,97 +1,58 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import ClipLoader from 'react-spinners/ClipLoader';
+import '../styles/Restaurant Insights.css'; // Import the CSS file
 
-
-function RestaurantInsights() {
-  const [restaurants, setRestaurants] = useState([]);
-  const [analytics, setAnalytics] = useState(null);
+const App = () => {
+  const [insights, setInsights] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-  axios.get('/api/restaurants')
-    .then(response => {
-      console.log(response.data);  // Log data to check response
-      setRestaurants(response.data.data);
-      setAnalytics(response.data.analytics);
-    })
-    .catch(error => {
-      console.error("Error fetching the restaurant data", error);
-    });
-}, []);
+    const fetchInsights = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/insights');
+        if (!response.ok) {
+          throw new Error('Failed to fetch insights data.');
+        }
+        const data = await response.json();
+        setInsights(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchInsights();
+  }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!insights) {
+    return (
+      <div className="spinner-container">
+        <div>
+          <ClipLoader color="#3498db" size={50} />
+          <div className="loading-text">Loading insights...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="restaurant-insights">
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>Restaurant Insights</h1>
-
-      <h2>Analytics</h2>
-
-      {/* Top-rated Restaurants */}
-      <section>
-        <h3>Top-Rated Restaurants</h3>
-        <ul>
-          {analytics && analytics.top_rated_restaurants.map((item, index) => (
-            <li key={index}>{item.name} - {item.rating} (City: {item.city}, Area: {item.area})</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Popular Cuisines */}
-      <section>
-        <h3>Popular Cuisines</h3>
-        <ul>
-          {analytics && Object.entries(analytics.popular_cuisines).map(([cuisine, count], index) => (
-            <li key={index}>{cuisine}: {count}</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Average Cost for Two by City */}
-      <section>
-        <h3>Average Cost for Two by City</h3>
-        <ul>
-          {analytics && Object.entries(analytics.average_cost_by_city).map(([city, cost], index) => (
-            <li key={index}>{city}: ₹{cost}</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Top Famous Foods */}
-      <section>
-        <h3>Top Famous Foods</h3>
-        <ul>
-          {analytics && analytics.top_famous_foods.map((item, index) => (
-            <li key={index}>{item.famous_food} - {item.rating} (Restaurant: {item.name}, City: {item.city})</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Restaurant Data Table */}
-      <h2>All Restaurants</h2>
-      <table className="restaurant-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>Area</th>
-            <th>Rating</th>
-            <th>Cuisine</th>
-            <th>Cost for Two</th>
-          </tr>
-        </thead>
-        <tbody>
-          {restaurants.map((restaurant, index) => (
-            <tr key={index}>
-              <td>{restaurant.name}</td>
-              <td>{restaurant.city}</td>
-              <td>{restaurant.area}</td>
-              <td>{restaurant.rating}</td>
-              <td>{restaurant.cusine}</td>
-              <td>{restaurant.cost_for_two}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <p><strong>Average Rating:</strong> {insights.average_rating}</p>
+      <p><strong>Average Cost for Two:</strong> ${insights.average_cost_for_two}</p>
+      <h2>Top Restaurants</h2>
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
+        {insights.top_restaurants.map((restaurant, index) => (
+          <li key={index} style={{ marginBottom: '10px' }}>
+            <strong>{restaurant.name}</strong>: {restaurant.rating}
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
-export default RestaurantInsights;
+export default App;

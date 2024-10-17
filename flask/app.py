@@ -1,18 +1,18 @@
-from flask import Flask, jsonify, send_from_directory
-from RestaurantInsights import get_restaurant_data
+# app.py
 
-app = Flask(__name__, static_folder='../react_app/build', static_url_path='/')
+from flask import Flask, jsonify
+from flask_cors import CORS
+from RestaurantInsights import get_insights
 
-
-@app.route('/api/restaurants', methods=['GET'])
-def restaurants():
-    data = get_restaurant_data()
-    return jsonify(data)
+app = Flask(__name__)
+CORS(app)
 
 
-@app.route('/')
-def serve_react_app():
-    return send_from_directory(app.static_folder, 'index.html')
+@app.route('/api/insights', methods=['GET'])
+def insights_route():
+    # Get insights data from ri.py
+    insights = get_insights()
+    return jsonify(insights)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,22 @@
+[
+    {
+        "zomato_url": "https://www.zomato.com/ncr/sainik-food-pandav-nagar",
+        "name": "Sainik Food",
+        "city": "Delhi NCR",
+        "area": "Pandav Nagar",
+        "rating": 3.2,
+        "rating_count": 21,
+        "telephone": "011 22486474 +91 9717806814",
+        "cusine": "North Indian",
+        "cost_for_two": 300,
+        "address": "C 4/1, Opposite Mother Dairy, Pandav Nagar, Near Metro Station",
+        "timings": "Mon-Sun: 10 AM - 11 PM",
+        "online_order": false,
+        "table_reservation": false,
+        "delivery_only": false,
+        "famous_food": null,
+        "longitude": 77.284871,
+        "latitude": 28.617732
+    }
+
+]
