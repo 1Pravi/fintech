@@ -1,58 +1,94 @@
 import React, { useState } from 'react';
 import '../../styles/layout styles/SearchBox.css';
 
-const suggestions = [
-  'Date Delivered',
-  'Date Requested',
-  'City',
-  'State',
-  'Status',
-  'Unit Cost',
-  'Supplier',
-  'Monthly',
-  'Product Name'
+const suggestionsList = [
+  "Restaurant Insights",
+  "Top-Rated Restaurants",
+  "Popular Cuisines",
+  "Cost Analysis",
+  "Famous Foods",
+  "Customer Preferences",
+  "Ratings Analysis",
+  "Online Ordering Trends",
+  "Reservation Insights",
+  "Location-Based Analysis",
+  "By City",
+  "By Area",
+  "Delivery Options",
+  "Rating Count",
 ];
 
-const SearchBox = () => {
+const AdvancedSearchBox = ({ onSelect }) => {
   const [query, setQuery] = useState('');
-  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const handleInputChange = (e) => {
-    const input = e.target.value;
-    setQuery(input);
+    const value = e.target.value;
+    setQuery(value);
 
-    // Filter suggestions based on input
-    if (input.length > 0) {
-      const filtered = suggestions.filter((suggestion) =>
-        suggestion.toLowerCase().includes(input.toLowerCase())
+    if (value) {
+      const filteredSuggestions = suggestionsList.filter((suggestion) =>
+        suggestion.toLowerCase().includes(value.toLowerCase())
       );
-      setFilteredSuggestions(filtered);
+      setSuggestions(filteredSuggestions);
+      setShowSuggestions(true);
     } else {
-      setFilteredSuggestions([]);
+      setShowSuggestions(false);
     }
   };
 
-  const handleSuggestionClick = (suggestion) => {
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowDown') {
+      setActiveIndex((prevIndex) => Math.min(prevIndex + 1, suggestions.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      setActiveIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    } else if (e.key === 'Enter' && activeIndex >= 0) {
+      selectSuggestion(suggestions[activeIndex]);
+    }
+  };
+
+  const selectSuggestion = (suggestion) => {
     setQuery(suggestion);
-    setFilteredSuggestions([]);
+    setShowSuggestions(false);
+    setActiveIndex(-1);
+    onSelect(suggestion);  // Pass the selected suggestion to the parent component
+  };
+
+  // Clear input function
+  const clearInput = () => {
+    setQuery('');
+    setShowSuggestions(false);
+    setSuggestions([]);
   };
 
   return (
-    <div className="search-box">
+    <div className="search-container">
       <input
         type="text"
         value={query}
         onChange={handleInputChange}
-        placeholder="Search..."
+        onKeyDown={handleKeyDown}
+        placeholder="Search insights..."
         className="search-input"
       />
-      {filteredSuggestions.length > 0 && (
+
+      {/* Clear icon */}
+      {query && (
+        <span className="clear-icon" onClick={clearInput}>
+          ✖
+        </span>
+      )}
+
+      {showSuggestions && suggestions.length > 0 && (
         <ul className="suggestions-list">
-          {filteredSuggestions.map((suggestion, index) => (
+          {suggestions.map((suggestion, index) => (
             <li
-              key={index}
-              onClick={() => handleSuggestionClick(suggestion)}
-              className="suggestion-item"
+              key={suggestion}
+              className={`suggestion-item ${index === activeIndex ? 'active' : ''}`}
+              onClick={() => selectSuggestion(suggestion)}
+              onMouseEnter={() => setActiveIndex(index)}
             >
               {suggestion}
             </li>
@@ -63,4 +99,4 @@ const SearchBox = () => {
   );
 };
 
-export default SearchBox;
+export default AdvancedSearchBox;

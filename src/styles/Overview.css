@@ -1,7 +1,7 @@
 /* Overview.css */
 .overview-container {
   position: relative;
-  top: -24px;
+  top: -47px;
   margin-left: -20px; /* Same width as sidebar */
   display: flex;
   flex-wrap: wrap;
