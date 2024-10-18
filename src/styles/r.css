@@ -1,0 +1,61 @@
+/* RestaurantInsights.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+.insights-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.insights-container h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.insights-list {
+  list-style: none;
+  padding: 0;
+}
+
+.insights-list li {
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.insights-list li:last-child {
+  border-bottom: none;
+}
+
+.loading,
+.error {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 2rem;
+}
+
+@media (max-width: 600px) {
+  .insights-container {
+    padding: 1rem;
+  }
+
+  .insights-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .insights-list li {
+    font-size: 1rem;
+  }
+}

@@ -10,20 +10,20 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointEleme
 function Overview() {
   // eslint-disable-next-line no-unused-vars
   const [metrics] = useState({
-    totalShipments: 1500,
-    deliveriesInProgress: 200,
-    successfulDeliveries: 1200,
-    failedDeliveries: 100,
+    totalShipments: 224520,
+    deliveriesInProgress: 21448596.0,
+    successfulDeliveries: 19682,
+    failedDeliveries: 83,
     averageLeadTime: 3
   });
 
   const [chartData, setChartData] = useState({
     shipmentVolumeByRegion: {
-      labels: ['North', 'South', 'East', 'West'],
+      labels: ['Delhi', 'Mumbai', 'Bengaluru', 'Hyderabad'],
       datasets: [
         {
           label: 'Shipments',
-          data: [500, 300, 400, 300],
+          data: [4049661.0, 3614821.0, 2827838.0, 1899383.0],
           backgroundColor: 'rgba(75, 192, 192, 0.6)'
         }
       ]
@@ -87,19 +87,15 @@ function Overview() {
           <p>{metrics.failedDeliveries}</p>
         </div>
         <div className="metric-card">
-          <h3>Top 10 Rated Restaurants</h3>
+          <h3>Total Areas : 2501</h3>
           <p> </p>
         </div>
       </div>
 
       <div className="charts">
         <div className="chart">
-          <h4>Top online orders by Region</h4>
+          <h4>Top 4 cities with the highest total orders</h4>
           <Bar data={chartData.shipmentVolumeByRegion} />
-        </div>
-        <div className="chart">
-          <h4>Lead Time Over Time</h4>
-          <Line data={chartData.leadTimeOverTime} />
         </div>
       </div>
     </div>

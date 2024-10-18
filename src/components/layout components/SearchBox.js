@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/layout styles/SearchBox.css';
 
 const suggestionsList = [
@@ -18,11 +19,12 @@ const suggestionsList = [
   "Rating Count",
 ];
 
-const AdvancedSearchBox = ({ onSelect }) => {
+const AdvancedSearchBox = () => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -53,10 +55,17 @@ const AdvancedSearchBox = ({ onSelect }) => {
     setQuery(suggestion);
     setShowSuggestions(false);
     setActiveIndex(-1);
-    onSelect(suggestion);  // Pass the selected suggestion to the parent component
-  };
 
-  // Clear input function
+    if (suggestion === "Top-Rated Restaurants") {
+      navigate("/top-rated-restaurants");
+    } else if (suggestion === "Popular Cuisines") {
+      navigate("/popular-cuisines");  // Navigate to the Popular Cuisines page
+    } else if (suggestion === "Famous Foods") {
+      navigate("/famous-foods");  // Navigate to the Famous Foods page
+    }
+
+    // Add more conditions for other suggestions if needed
+  };
   const clearInput = () => {
     setQuery('');
     setShowSuggestions(false);

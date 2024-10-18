@@ -29,7 +29,6 @@ function Sidebar() {
             <ul className="sub-options">
               <li><NavLink to="/insights/top-rated" activeClassName="active">Top-Rated Restaurants</NavLink></li>
               <li><NavLink to="/insights/popular-cuisines" activeClassName="active">Popular Cuisines</NavLink></li>
-              <li><NavLink to="/insights/cost-analysis" activeClassName="active">Cost Analysis</NavLink></li>
               <li><NavLink to="/insights/famous-foods" activeClassName="active">Famous Foods</NavLink></li>
             </ul>
           )}
