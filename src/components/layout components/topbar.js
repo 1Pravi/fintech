@@ -5,7 +5,7 @@ import '../../styles/layout styles/topbar.css';
 function topbar() {
   return (
     <div className="topbar">
-      <h1>HAKDATA</h1>
+      <h1>FIN ANALYSIS</h1>
     </div>
   );
 }

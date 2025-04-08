@@ -11,10 +11,6 @@ import Overview from './components/Overview';
 import Operationp from './components/DeliveryPerformance';
 import DataFilters from './components/Data Filters';
 import './styles/layout styles/App.css';
-import TopRatedRestaurants from './components/ResIns components/top-rated';
-import PopularCuisines from "./components/ResIns components/topcu";
-import FamousFoods from "./components/ResIns components/ff";
-
 
 function App() {
   return (
@@ -27,20 +23,12 @@ function App() {
             <SearchBox />
             <div className="content">
               <Routes>
-                <Route path="/top-rated-restaurants" element={<TopRatedRestaurants />} />
                 <Route path="/" element={<RestaurantInsights />} />
+                <Route path="/overview" element={<Overview />} />
                 <Route path="/consumption" element={<CustomerPreferences />} />
                 <Route path="/vendors" element={<LocationBasedAnalysis />} />
-                <Route path="/overview" element={<Overview />} />
                 <Route path="/DeliveryPerformance" element={<Operationp />} />
                 <Route path="/Data" element={<DataFilters />} />
-                <Route path="/insights/top-rated" element={<TopRatedRestaurants />} />
-                <Route path="/insights/popular-cuisines" element={<PopularCuisines />} />
-                <Route path="/popular-cuisines" element={<PopularCuisines />} />
-                <Route path="/insights/famous-foods" element={<FamousFoods />} />
-                <Route path="/famous-foods" element={<FamousFoods />} />
-
-
               </Routes>
             </div>
           </div>
