@@ -2,51 +2,35 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../styles/layout styles/Sidebar.css';
 
-function Sidebar() {
+function Sidebar({ isOpen }) {
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <ul>
-        {/* Overview Section */}
         <li>
-          <NavLink to="/overview" activeClassName="active">
-            Overview
-          </NavLink>
+          <NavLink to="/overview" className={({ isActive }) => isActive ? 'active' : ''}>Overview</NavLink>
+        </li>
+        <li>
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Realtime cashflow</NavLink>
+        </li>
+        <li>
+          <NavLink to="/consumption" className={({ isActive }) => isActive ? 'active' : ''}>Revenue Expense Analysis</NavLink>
+        </li>
+        <li>
+          <NavLink to="/vendors" className={({ isActive }) => isActive ? 'active' : ''}>Profit and loss</NavLink>
+        </li>
+        <li>
+          <NavLink to="/DeliveryPerformance" className={({ isActive }) => isActive ? 'active' : ''}>Financial forecast</NavLink>
+        </li>
+        <li>
+          <NavLink to="/Data" className={({ isActive }) => isActive ? 'active' : ''}>Automated Financial Reports</NavLink>
+        </li>
+        <li>
+          <NavLink to="/Performance" className={({ isActive }) => isActive ? 'active' : ''}>Performance</NavLink>
         </li>
 
-        {/* Restaurant Insights */}
-        <li>
-          <NavLink to="/" exact activeClassName="active">
-            Realtime cashflow
-          </NavLink>
-        </li>
 
-        {/* Customer Preferences */}
-        <li>
-          <NavLink to="/consumption" activeClassName="active">
-            Revenue Expense Analysis
-          </NavLink>
-        </li>
 
-        {/* Location Based Analysis */}
-        <li>
-          <NavLink to="/vendors" activeClassName="active">
-            Profit and loss
-          </NavLink>
-        </li>
 
-        {/* Operational Analytics */}
-        <li>
-          <NavLink to="/DeliveryPerformance" activeClassName="active">
-            Financial forecast
-          </NavLink>
-        </li>
-
-        {/* Data Filters */}
-        <li>
-          <NavLink to="/Data" activeClassName="active">
-            Automated Financial Reports
-          </NavLink>
-        </li>
       </ul>
     </div>
   );

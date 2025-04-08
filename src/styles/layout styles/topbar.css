@@ -3,48 +3,62 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #1a202c; /* Adjust color as desired */
+  background-color: #1a202c;
   color: #ffffff;
+  position: relative;
 }
 
-.topbar h1 {
+.sidebar-toggle-btn {
+  margin-left: 25px;
+  margin-right: 20px;
   font-size: 24px;
-  margin: 0;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
-.topbar h1:hover {
-  color: #c3b9b9;
+.menu-wrapper {
+  position: relative;
 }
 
-.topbar-controls {
-  display: flex;
-  gap: 15px;
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
 }
 
-.profile-btn {
-    background-color: #0f255c; /* Green background */
-    border: none; /* Remove border */
-    color: white; /* White text */
-    cursor: pointer; /* Pointer on hover */
-    font-size: 15px; /* Font size for "P" */
-    font-weight: bold;
-    width: 35px; /* Width of the circular button */
-    height: 35px; /* Height to match width for a circle */
-    border-radius: 50%; /* Make it circular */
-    display: flex; /* Center the "P" */
-    align-items: center; /* Center the "P" vertically */
-    justify-content: center; /* Center the "P" horizontally */
-    transition: background-color 0.3s ease; /* Smooth hover transition */
+.theme-dropdown {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  background-color: #2d3748;
+  color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
-.profile-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
+.theme-dropdown div {
+  padding: 10px 15px;
+  cursor: pointer;
 }
 
-
-.profile-btn:hover {
-  background-color: #357ABD;
+.theme-dropdown div:hover {
+  background-color: #4a5568;
 }
 
+/* Theme classes */
+body.light-mode {
+  background-color: #f0f0f0;
+  color: #000;
+}
 
-
+body.dark-mode {
+  background-color: #1a202c;
+  color: #fff;
+}
