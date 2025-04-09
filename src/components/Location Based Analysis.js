@@ -1,98 +1,103 @@
-import React from 'react';
-import { Bar, Pie, Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, LineElement } from 'chart.js';
-import '../styles/Location Based Analysis.css'; // Make sure to include this CSS file or use inline styles
+import React from "react";
+import {
+  BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid,
+  LineChart, Line, Legend
+} from "recharts";
+import '../styles/Location Based Analysis.css';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  LineElement
-);
+const metrics = [
+  { title: "Total Revenue", value: "120,000" },
+  { title: "Total Expenses", value: "85,000" },
+  { title: "Net Profit", value: "35,000" },
+  { title: "Profit Margin", value: "29.2%" },
+];
 
-function LocationBasedAnalysis() {
-  // Sample data
-  const sampleVendorData = [
-    { id: 1, name: 'Vendor A', shipments: 120 },
-    { id: 2, name: 'Vendor B', shipments: 80 },
-    { id: 3, name: 'Vendor C', shipments: 200 },
-  ];
+const barChartData = [
+  { name: "Product Sales", revenue: 120000, expenses: 10000, profit: 35000 },
+  { name: "Service Income", revenue: 80000, expenses: 25000, profit: 15500 },
+  { name: "Office Rent", revenue: 100000, expenses: 35000, profit: 3000 },
+  { name: "Salaries", revenue: 65000, expenses: 6000, profit: 12600 },
+  { name: "Utilities", revenue: 30000, expenses: 4000, profit: 400 },
+];
 
-  const sampleDeliveryData = {
-    labels: ['Successful Deliveries', 'Failed Deliveries'],
-    datasets: [{
-      label: 'Deliveries',
-      data: [1350, 30],
-      backgroundColor: ['#4CAF50', '#F44336'],
-    }],
-  };
+const tableData = [
+  ["Product Sales", "120,000", "10,000", "35,000", "35,000"],
+  ["Service Income", "80,000", "25,000", "13,000", "15,500"],
+  ["Office Rent", "100,000", "35,000", "-5,000", "3,000"],
+  ["Salaries", "65,000", "6,000", "23,000", "12,600"],
+  ["Utilities", "30,000", "4,000", "500", "400"],
+  ["Net Profit", "120,000", "85,000", "35,000", "35,000"],
+];
 
-  const sampleRegionData = {
-    labels: ['North', 'South', 'East', 'West'],
-    datasets: [{
-      label: 'Shipment Volume by Region',
-      data: [500, 300, 400, 300],
-      backgroundColor: ['#2196F3', '#FFC107', '#4CAF50', '#FF5722'],
-    }],
-  };
-
-  const sampleTrendData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [{
-      label: 'Deliveries Over Time',
-      data: [200, 300, 250, 400, 350, 450],
-      borderColor: '#2196F3',
-      backgroundColor: 'rgba(33, 150, 243, 0.2)',
-    }],
-  };
-
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false, // Allows you to control the aspect ratio
-  };
-
+const ProfitAndLossDashboard = () => {
   return (
-    <div>
-      <h1>Vendor Activity Tracking</h1>
-      <h2>Vendor Data</h2>
-      {sampleVendorData.length ? (
-        <ul>
-          {sampleVendorData.map((vendor) => (
-            <li key={vendor.id}>
-              {vendor.name}: {vendor.shipments} shipments
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No vendor data available</p>
-      )}
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">Profit and Loss Analysis</h2>
 
-      <h2>Delivery Status</h2>
-      <div className="chart-container">
-        <div className="chart">
-          <Pie data={sampleDeliveryData} options={options} />
+      <div className="metrics-container">
+        {metrics.map((item, index) => (
+          <div key={index} className="metric-card">
+            <div className="metric-title">{item.title}</div>
+            <div className="metric-value">{item.value}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="charts-container">
+        <div className="chart-box">
+          <h4>Revenue vs. Expenses</h4>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={barChartData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="revenue" fill="#6366F1" name="Revenue" />
+              <Bar dataKey="expenses" fill="#F87171" name="Expenses" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="chart-box">
+          <h4>Profit Trends</h4>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={barChartData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="profit" stroke="#34D399" strokeWidth={3} name="Profit" />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
-      <h2>Shipment Volume by Region</h2>
-      <div className="chart-container">
-        <div className="chart">
-          <Bar data={sampleRegionData} options={options} />
-        </div>
-      </div>
-
-      <h2>Deliveries Over Time</h2>
-      <div className="chart-container">
-        <div className="chart">
-          <Line data={sampleTrendData} options={options} />
-        </div>
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Descriptions</th>
+              <th>Revenue</th>
+              <th>Expenses</th>
+              <th>Profit</th>
+              <th>Profit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((row, idx) => (
+              <tr key={idx}>
+                {row.map((cell, cIdx) => (
+                  <td key={cIdx}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
-}
+};
 
-export default LocationBasedAnalysis;
+export default ProfitAndLossDashboard;
