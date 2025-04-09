@@ -51,43 +51,34 @@ const Dashboard = () => {
   return (
     <div className="p-6 bg-gray-100 min-h-screen space-y-6">
 
-      {/* Metric Summary Table */}
-      <div className="bg-white p-4 rounded-2xl shadow-md overflow-x-auto">
-        <h3 className="text-lg font-semibold mb-4">Metrics Summary</h3>
-        <table className="w-full text-sm">
-          <thead className="bg-gray-200">
-            <tr>
-              <th className="p-3 text-left">Metric</th>
-              <th className="p-3 text-left">Value</th>
-              <th className="p-3 text-left">Icon</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b">
-              <td className="p-3">Total Inflow</td>
-              <td className="p-3 text-green-600">₹265,423</td>
-              <td className="p-3">{inflowIcon}</td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-3">Total Outflow</td>
-              <td className="p-3 text-red-600">₹191,375</td>
-              <td className="p-3">{outflowIcon}</td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-3">Net Cash Flow</td>
-              <td className="p-3 text-blue-600">₹74,048</td>
-              <td className="p-3">{inflowIcon}</td>
-            </tr>
-            <tr>
-              <td className="p-3">Current Balance</td>
-              <td className="p-3 text-purple-600">₹55,879</td>
-              <td className="p-3">{balanceIcon}</td>
-            </tr>
-          </tbody>
-        </table>
+      {/* Metrics Summary - Container Boxes */}
+<div className="metrics-summary">
+  <h3 className="metrics-summary-title">Metrics Summary</h3>
+  <div className="metrics-grid">
+    {[
+      { label: "Total Inflow", value: "₹265,423", status: "Good" },
+      { label: "Total Outflow", value: "₹191,375", status: "Moderate" },
+      { label: "Net Cash Flow", value: "₹74,048", status: "Stable" },
+      { label: "Current Balance", value: "₹55,879", status: "Healthy" },
+    ].map((metric, i) => (
+      <div key={i} className="metric-box">
+        <div className="metric-label">{metric.label}</div>
+        <div className="metric-value">{metric.value}</div>
+        <div
+          className={`metric-status ${
+            metric.status.toLowerCase()
+          }`}
+        >
+          {metric.status}
+        </div>
       </div>
+    ))}
+  </div>
+</div>
 
-      {/* Charts Section */}
+
+
+      {/* Charts */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-4 rounded-2xl shadow-md">
           <h3 className="font-semibold mb-4">Cash Balance Over Time</h3>
@@ -124,26 +115,30 @@ const Dashboard = () => {
         <table className="w-full text-sm">
           <thead className="bg-gray-200">
             <tr>
+              <th className="p-3 text-left">#</th>
               <th className="p-3 text-left">Description</th>
               <th className="p-3 text-left">Type</th>
               <th className="p-3 text-left">Amount</th>
               <th className="p-3 text-left">Balance</th>
               <th className="p-3 text-left">Bank</th>
+              <th className="p-3 text-left">Date</th>
             </tr>
           </thead>
           <tbody>
             {transactionData1.map((row, i) => (
               <tr key={i} className="border-b">
+                <td className="p-3">{i + 1}</td>
                 {row.map((cell, j) => (
                   <td key={j} className="p-3">{cell}</td>
                 ))}
+                <td className="p-3">2025-04-09</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      {/* Transaction Mode Pie Chart */}
+      {/* Pie Chart */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-4 rounded-2xl shadow-md">
           <h3 className="font-semibold mb-4">Transaction Mode</h3>
@@ -174,20 +169,24 @@ const Dashboard = () => {
         <table className="w-full text-sm">
           <thead className="bg-gray-200">
             <tr>
+              <th className="p-3 text-left">#</th>
               <th className="p-3 text-left">Description</th>
               <th className="p-3 text-left">Type</th>
               <th className="p-3 text-left">Amount</th>
               <th className="p-3 text-left">Balance</th>
               <th className="p-3 text-left">Bank</th>
               <th className="p-3 text-left">Transaction Mode</th>
+              <th className="p-3 text-left">Status</th>
             </tr>
           </thead>
           <tbody>
             {transactionData2.map((row, i) => (
               <tr key={i} className="border-b">
+                <td className="p-3">{i + 1}</td>
                 {row.map((cell, j) => (
                   <td key={j} className="p-3">{cell}</td>
                 ))}
+                <td className="p-3">Completed</td>
               </tr>
             ))}
           </tbody>

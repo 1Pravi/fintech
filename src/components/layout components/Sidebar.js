@@ -27,10 +27,6 @@ function Sidebar({ isOpen }) {
         <li>
           <NavLink to="/Performance" className={({ isActive }) => isActive ? 'active' : ''}>Performance</NavLink>
         </li>
-
-
-
-
       </ul>
     </div>
   );
