@@ -1,165 +1,112 @@
-/* r.css — Custom Styles for React Dashboard */
+/* r.css */
 
-/* === Base === */
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f3f4f6; /* Tailwind's gray-100 */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  color: #1f2937;
   margin: 0;
   padding: 0;
 }
 
-/* === Metric Cards === */
-.card-transition {
-  transition: all 0.3s ease-in-out;
+.metrics-summary-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  flex-wrap: nowrap;
+  overflow: hidden; /* hide anything overflowing instead of scrolling */
 }
 
-.card-transition:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-}
 
-/* === Table Styling === */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 0.875rem;
-}
 
-thead {
-  background-color: #e5e7eb; /* Tailwind's gray-200 */
-  color: #374151; /* Tailwind's gray-700 */
-}
-
-th, td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #d1d5db; /* Tailwind's gray-300 */
-}
-
-tbody tr:hover {
-  background-color: #f9fafb;
-}
-
-/* === Charts === */
-.recharts-tooltip-wrapper {
-  font-size: 0.875rem;
-  background-color: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.recharts-pie-label-text {
-  font-size: 0.75rem;
-  fill: #4b5563; /* Tailwind's gray-700 */
-}
-
-/* === Card Containers === */
-.chart-card, .table-card {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* === Metrics Summary === */
-.metrics-summary {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  margin-bottom: 1rem;
-
-}
-
-.metrics-summary-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  font-family: Verdana, serif;
-}
-
-.metrics-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-@media (min-width: 640px) {
-  .metrics-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .metrics-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
 
 .metric-box {
-  background-color: #f3f4f6;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1.75rem;
+  width: 100%;
+  max-width: 260px;
+  text-align: center;
+  flex: 1;
 }
+
 
 .metric-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: skew(-5deg) scale(1.03);
 }
 
-.metric-label {
-  font-size: 0.875rem;
-  color: #6b7280;
-  font-weight: 500;
+
+
+.metric-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
 .metric-value {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-top: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
 }
 
 .metric-status {
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
+  font-size: 0.9rem;
   font-weight: 500;
-  display: inline-block;
+  margin-top: 0.3rem;
+  color: #10b981; /* default green, can customize */
 }
 
-.metric-status.good {
-  background-color: #dcfce7;
-  color: #166534;
+
+.text-green-600 {
+  color: #16a34a;
+}
+.text-yellow-600 {
+  color: #ca8a04;
+}
+.text-blue-600 {
+  color: #2563eb;
+}
+.text-purple-600 {
+  color: #7c3aed;
 }
 
-.metric-status.moderate {
-  background-color: #fef3c7;
-  color: #92400e;
+/* Chart Cards */
+.chart-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.metric-status.stable {
-  background-color: #e0f2fe;
-  color: #0369a1;
+/* Transactions Table */
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
 }
 
-.metric-status.healthy {
-  background-color: #d1fae5;
-  color: #065f46;
+.transactions-table thead {
+  background-color: #e5e7eb;
 }
 
-/* === Responsive Fixes (Fallback) === */
-@media (max-width: 640px) {
-  .sm\:grid-cols-2 {
-    grid-template-columns: repeat(1, 1fr) !important;
-  }
+.transactions-table th,
+.transactions-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
 
-  th, td {
-    padding: 0.5rem;
+.transactions-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+@media (max-width: 768px) {
+  .metrics-summary,
+  .chart-card {
+    padding: 1rem;
   }
 }

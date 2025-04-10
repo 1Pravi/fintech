@@ -96,23 +96,26 @@ const Dashboard = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen space-y-6">
+
       {/* Metrics Summary */}
       <div className="metrics-summary">
         <h3 className="metrics-summary-title text-xl font-semibold mb-4">Metrics Summary</h3>
         {!summary ? (
           <div className="text-gray-500">Loading summary...</div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="metrics-summary-container">
             {metrics.map((metric, i) => (
-              <div key={i} className="p-4 bg-white rounded-2xl shadow-md">
-                <div className="text-sm font-medium text-gray-600">{metric.label}</div>
-                <div className="text-xl font-bold text-gray-900">{metric.value}</div>
-                <div className={`text-xs font-semibold mt-1 ${
-                  metric.status === 'Good' ? 'text-green-600' :
-                  metric.status === 'Moderate' ? 'text-yellow-600' :
-                  metric.status === 'Stable' ? 'text-blue-600' : 'text-purple-600'
-                }`}>
-                  {metric.status}
+              <div key={i} className="metric-box">
+                <div className="metric-content">
+                  <div className="metric-title">{metric.label}</div>
+                  <div className="metric-value">{metric.value}</div>
+                  <div className={`metric-status ${
+                    metric.status === 'Good' ? 'text-green-600' :
+                    metric.status === 'Moderate' ? 'text-yellow-600' :
+                    metric.status === 'Stable' ? 'text-blue-600' : 'text-purple-600'
+                  }`}>
+                    {metric.status}
+                  </div>
                 </div>
               </div>
             ))}
@@ -122,7 +125,6 @@ const Dashboard = () => {
 
       {/* Charts */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Line Chart */}
         <div className="bg-white p-4 rounded-2xl shadow-md">
           <h3 className="font-semibold mb-4">Cash Balance Over Time</h3>
           <ResponsiveContainer width="100%" height={250}>
@@ -136,7 +138,6 @@ const Dashboard = () => {
           </ResponsiveContainer>
         </div>
 
-        {/* Bar Chart */}
         <div className="bg-white p-4 rounded-2xl shadow-md">
           <h3 className="font-semibold mb-4">Inflow vs. Outflow</h3>
           <ResponsiveContainer width="100%" height={250}>
@@ -156,7 +157,7 @@ const Dashboard = () => {
       {/* Transactions Table */}
       <div className="bg-white p-4 rounded-2xl shadow-md overflow-x-auto">
         <h3 className="text-lg font-semibold mb-4">Transactions</h3>
-        <table className="w-full text-sm">
+        <table className="w-full text-sm transactions-table">
           <thead className="bg-gray-200">
             <tr>
               <th className="p-3 text-left">#</th>
