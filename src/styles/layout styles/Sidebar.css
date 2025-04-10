@@ -6,7 +6,7 @@
   left: 0;
   width: 210px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 85, 6, 0.15);
   backdrop-filter: blur(12px);
   box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
@@ -68,13 +68,13 @@
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
   background: linear-gradient(135deg, #4bc0c8, #c779d0, #feac5e);
-  color: white;
+  color: #190404;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar ul li a:hover::before,
 .sidebar ul li a.active::before {
-  background: white;
+  background: #1d0404;
 }
 
 /* Optional: Add icons */

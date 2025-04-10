@@ -14,23 +14,6 @@ const formatter = new Intl.NumberFormat('en-IN', {
 
 const COLORS = ["#4c83ff", "#ff7f50", "#00c49f"];
 
-const lineData = [
-  { name: 'Jan 1', value: 25000 },
-  { name: 'Feb-1', value: 31000 },
-  { name: 'Mar', value: 47000 },
-  { name: 'Enh 1', value: 50000 },
-  { name: 'Apr*', value: 60000 },
-  { name: 'Apr 1', value: 58000 },
-  { name: 'Apr 6', value: 65000 },
-];
-
-const barData = [
-  { name: 'Jan', inflow: 60000, outflow: 30000 },
-  { name: 'Feb', inflow: 55000, outflow: 28000 },
-  { name: 'Mar', inflow: 65000, outflow: 35000 },
-  { name: 'Apr', inflow: 40000, outflow: 25000 },
-];
-
 const pieData = [
   { name: "Cheque", value: 47 },
   { name: "NEFT", value: 24 },
@@ -41,11 +24,19 @@ const Dashboard = () => {
   const [summary, setSummary] = useState(null);
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [lineChartData, setLineChartData] = useState([]);
+  const [barChartData, setBarChartData] = useState([]);
+
+  const formatMonth = (monthStr) => {
+    const [year, month] = monthStr.split("-");
+    const date = new Date(`${year}-${month}-01`);
+    return date.toLocaleString("default", { month: "short", year: "numeric" });
+  };
 
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/summary');
+        const res = await axios.get("http://localhost:5000/api/summary");
         setSummary(res.data);
       } catch (err) {
         console.error("API fetch error:", err);
@@ -63,8 +54,37 @@ const Dashboard = () => {
       }
     };
 
+    const fetchLineChartData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/line");
+        const formatted = res.data.map(item => ({
+          name: formatMonth(item.Month),
+          value: item.Balance_After
+        }));
+        setLineChartData(formatted);
+      } catch (error) {
+        console.error("Error fetching line chart data:", error);
+      }
+    };
+
+    const fetchBarChartData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/bar");
+        const formatted = res.data.map(item => ({
+          name: formatMonth(item.name),
+          inflow: item.inflow,
+          outflow: item.outflow
+        }));
+        setBarChartData(formatted);
+      } catch (error) {
+        console.error("Error fetching bar chart data:", error);
+      }
+    };
+
     fetchSummary();
     fetchTransactions();
+    fetchLineChartData();
+    fetchBarChartData();
   }, []);
 
   const metrics = summary ? [
@@ -79,7 +99,6 @@ const Dashboard = () => {
       {/* Metrics Summary */}
       <div className="metrics-summary">
         <h3 className="metrics-summary-title text-xl font-semibold mb-4">Metrics Summary</h3>
-
         {!summary ? (
           <div className="text-gray-500">Loading summary...</div>
         ) : (
@@ -107,7 +126,7 @@ const Dashboard = () => {
         <div className="bg-white p-4 rounded-2xl shadow-md">
           <h3 className="font-semibold mb-4">Cash Balance Over Time</h3>
           <ResponsiveContainer width="100%" height={250}>
-            <LineChart data={lineData}>
+            <LineChart data={lineChartData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
@@ -121,7 +140,7 @@ const Dashboard = () => {
         <div className="bg-white p-4 rounded-2xl shadow-md">
           <h3 className="font-semibold mb-4">Inflow vs. Outflow</h3>
           <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={barData}>
+            <BarChart data={barChartData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
