@@ -1,15 +1,4 @@
-/* Overview.css */
-.overview-container {
-  position: relative;
-  top: -47px;
-  margin-left: -20px; /* Same width as sidebar */
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  padding: 20px;
-  background-color: #f4f4f9;
-  overflow-y: auto;
-}
+
 
 /* Ensure body font size is responsive */
 body {

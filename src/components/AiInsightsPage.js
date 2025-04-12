@@ -1,6 +1,12 @@
 import React from 'react';
 import '../styles/AiInsightsPage.css'; // Assuming you have a CSS file for styling
 
+const VoiceAiUrl = "http://localhost:9001";
+
+const openVoiceAiWindow = () => {
+    window.open(VoiceAiUrl,"_self");
+  };
+
 const AiInsightsPage = () => {
   return (
     <div className="ai-page-container">
@@ -14,7 +20,7 @@ const AiInsightsPage = () => {
         />
         <div className="ai-buttons-wrapper">
           <button className="ai-submit-btn">Generate Insight</button>
-          <button className="ai-voice-btn" aria-label="Activate voice assistant">
+          <button className="ai-voice-btn" aria-label="Activate voice assistant" onClick={openVoiceAiWindow}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

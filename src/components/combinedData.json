@@ -1,0 +1,58 @@
+[
+  {
+    "Date": "2023-01-01",
+    "Category": "Mixed",
+    "Department": "Finance",
+    "Amount": -12100.0,
+    "Description": "Monthly Financial Summary"
+  },
+  {
+    "Date": "2023-02-01",
+    "Category": "Mixed",
+    "Department": "Finance",
+    "Amount": -9200.0,
+    "Description": "Monthly Financial Summary"
+  },
+  {
+    "Date": "2024-01-04",
+    "Category": "Expense",
+    "Department": "HR",
+    "Amount": -1200.0,
+    "Description": "Office Supplies"
+  },
+  {
+    "Date": "2024-01-15",
+    "Category": "Expense",
+    "Department": "Marketing",
+    "Amount": -5000.0,
+    "Description": "Software Subscription"
+  },
+  {
+    "Date": "2024-01-23",
+    "Category": "Expense",
+    "Department": "Admin",
+    "Amount": -1200.0,
+    "Description": "Utilities"
+  },
+  {
+    "Date": "2024-01-29",
+    "Category": "Expense",
+    "Department": "Tech",
+    "Amount": -13000.0,
+    "Description": "Salaries and Wages"
+  },
+  {
+    "Date": "2024-01-08",
+    "Category": "Revenue",
+    "Department": "Sales",
+    "Amount": 26000.0,
+    "Description": "Product A Sale"
+  },
+  {
+    "Date": "2024-01-12",
+    "Category": "Revenue",
+    "Department": "Sales",
+    "Amount": 25000.0,
+    "Description": "Product B Sale"
+  }
+]

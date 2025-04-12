@@ -5,6 +5,8 @@ const Card = ({ title, value, icon }) => (
     <div className="text-gray-500 text-sm">{title}</div>
     <div className="text-2xl font-bold flex items-center gap-2">{icon} {value}</div>
   </div>
+
 );
+
 
 export default Card;
