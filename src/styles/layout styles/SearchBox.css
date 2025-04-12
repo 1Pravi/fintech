@@ -1,78 +1,68 @@
 .search-container {
+  position: relative;
+  width: 300%;
+  max-width: 550px; /* controls how wide it gets */
+  margin: 20px auto; /* horizontal center + some top margin */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin: 20px 0;
-  position: relative; /* Allows positioning of suggestions list */
+  flex-direction: column;
 }
 
 .search-input {
-  background-color: rgb(209, 230, 228);
-  width: 100%;
-  max-width: 1000px;
-  padding: 10px;
-  font-size: 16px;
+  width: 195%; /* fits within the container */
+  padding: 16px 90px 16px 20px;
+  font-size: 18px;
   border: 1px solid #ccc;
-  border-radius: 5px; /* Rounded corners for a modern look */
-  transition: all 0.3s ease; /* Smooth focus effect */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding-right: 30px; /* Space for clear icon */
+  border-radius: 14px;
+  background-color: #bfd5ef;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 .search-input:focus {
-  border-color: #010f20; /* Border color on focus */
-  outline: none; /* Removes default outline */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on focus */
+  border-color: whitesmoke;
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.25);
 }
 
 .clear-icon {
   position: absolute;
   top: 50%;
-  right: 15px;
+  right: -300px;
   transform: translateY(-50%);
-  font-size: 0.9rem;
-  color: #888;
   cursor: pointer;
+  color: #666;
+  font-size: 20px;
+  user-select: none;
 }
 
 .clear-icon:hover {
-  color: #01010c;
+  color: #222;
 }
 
 .suggestions-list {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 5px; /* Space between input and suggestions */
-  max-height: 250px;
-  border: 1px solid #ddd;
-  border-radius: 0 0 5px 5px; /* Rounds bottom corners */
-  background-color: #fff;
   position: absolute;
   top: 100%;
-  left: 0;
   width: 100%;
-  max-width: 1000px; /* Matches input's max width */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 250px;
+  overflow-y: auto;
+  border-radius: 0 0 14px 14px;
   z-index: 1000;
-  overflow-y: auto; /* Scroll for many items */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  -ms-overflow-style: none;  /* Hides scrollbar in IE */
-  scrollbar-width: none; /* Firefox */
-}
-
-.suggestions-list::-webkit-scrollbar {
-  display: none; /* Hides scrollbar in WebKit browsers */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .suggestion-item {
-  padding: 10px; /* Better click area */
+  padding: 14px 20px;
+  font-size: 17px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  transition: background-color 0.2s ease;
 }
 
 .suggestion-item:hover,
 .suggestion-item.active {
-  background-color: rgb(42, 42, 76); /* Background on hover */
-  color: #fff; /* Text color on hover */
+  background-color: #f1f1f1;
 }
